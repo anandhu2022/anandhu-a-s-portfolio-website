@@ -98,17 +98,17 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-gray-300 leading-relaxed"
                 >
-                    I'm a software engineer with a passion for full-stack development. I specialize in
+                    I&#39;m a software engineer with a passion for full-stack development. I specialize in
                     building modern web applications with React, Next.js, and TypeScript on the frontend,
                     while also working with Node.js, NestJS, and databases on the backend.
                 </motion.p>
                 <motion.p className={`pt-3`}>
                     My experience also includes DevOps, testing, and eCommerce platforms like Magento and
-                    Vendure. I'm constantly learning and staying updated with the latest technologies to
+                    Vendure. I&#39;m constantly learning and staying updated with the latest technologies to
                     deliver cutting-edge solutions.
                 </motion.p>
                 <motion.p className={`pt-3`}>
-                    When I'm not coding, I enjoy exploring new technologies, contributing to open-source
+                    When I&#39;m not coding, I enjoy exploring new technologies, contributing to open-source
                     projects, and sharing knowledge with the developer community.
                 </motion.p>
             </section>
