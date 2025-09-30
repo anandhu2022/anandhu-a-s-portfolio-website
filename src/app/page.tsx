@@ -1,16 +1,26 @@
 // app/page.tsx
-"use client";
+'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
-const projects = [
-    { title: "Portfolio Website", desc: "Personal site built with Next.js & TailwindCSS." },
-    { title: "E-Commerce App", desc: "Full-stack online store with Stripe integration." },
-    { title: "Chat Platform", desc: "Realtime chat app using Firebase and WebSockets." },
-];
-
-const skills = ["Next.js", "React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Docker"];
+// ✅ Grouped Skills
+const skills = {
+    frontend: [
+        'Next.js',
+        'React',
+        'React Native',
+        'TypeScript',
+        'Redux',
+        'Material UI',
+        'TailwindCSS',
+    ],
+    backend: ['Node.js', 'Express', 'NestJS', 'PHP', 'REST APIs', 'JWT / OAuth', 'Strapi'],
+    databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'Prisma', 'Redis'],
+    devops: ['Docker', 'Git', 'Vercel'],
+    testing: ['Jest', 'Postman'],
+    ecommerce: ['Magento2', 'Adobe Commerce', 'Vendure'],
+};
 
 export default function Home() {
     return (
@@ -24,16 +34,16 @@ export default function Home() {
                     transition={{ duration: 1 }}
                     className="flex justify-center md:justify-start flex-1"
                 >
-                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-gray-800 shadow-lg">
+                    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-gray-800 shadow-lg">
                         <Image
                             src="/profile.jpg"
                             alt="Anandhu A S"
-                            width={320}
-                            height={320}
-                            className="object-cover object-top w-full h-full"
+                            fill
+                            className="object-cover object-top"
                             priority
                         />
                     </div>
+
                 </motion.div>
 
                 {/* Right Content */}
@@ -45,26 +55,27 @@ export default function Home() {
                 >
                     <h1 className="text-5xl md:text-6xl font-bold mb-4">Anandhu A S</h1>
                     <h2 className="text-xl text-gray-400 mb-6">
-                        Frontend Developer | React | Next.js | TypeScript
+                        Full-Stack Developer | React | Next.js | TypeScript
                     </h2>
                     <p className="text-gray-300 leading-relaxed mb-8">
-                        I’m a passionate frontend developer focused on creating modern,
-                        responsive, and visually appealing web applications. I love working
-                        with React, Next.js, and TypeScript to bring ideas to life with clean and efficient code.
+                        I’m a full-stack developer passionate about building modern, scalable, and user-friendly
+                        applications. My expertise spans frontend, backend, databases, DevOps, and eCommerce
+                        platforms. I focus on delivering clean code, high performance, and seamless user
+                        experiences.
                     </p>
                     <div className="flex gap-4 justify-center md:justify-start">
                         <a
-                            href="mailto:yourmail@example.com"
+                            href="mailto:anandhuas2022@gmail.com"
                             className="px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition"
                         >
                             Contact Me
                         </a>
-                        <a
-                            href="/resume.pdf"
-                            className="px-6 py-3 border border-gray-600 rounded-lg font-semibold hover:bg-gray-800 transition"
-                        >
-                            Resume
-                        </a>
+                        {/*<a*/}
+                        {/*  href="/resume.pdf"*/}
+                        {/*  className="px-6 py-3 border border-gray-600 rounded-lg font-semibold hover:bg-gray-800 transition"*/}
+                        {/*>*/}
+                        {/*  Resume*/}
+                        {/*</a>*/}
                     </div>
                 </motion.div>
             </section>
@@ -87,40 +98,19 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-gray-300 leading-relaxed"
                 >
-                    I’m a full-stack developer passionate about creating intuitive,
-                    high-performance apps. I enjoy solving complex problems and building
-                    elegant solutions that provide great user experiences. My focus is on
-                    frontend development, but I have experience in backend and database management.
+                    I'm a software engineer with a passion for full-stack development. I specialize in
+                    building modern web applications with React, Next.js, and TypeScript on the frontend,
+                    while also working with Node.js, NestJS, and databases on the backend.
                 </motion.p>
-            </section>
-
-            {/* Projects Section */}
-            <section id="projects" className="py-32 px-8 bg-gray-900">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-4xl font-bold mb-12 text-center"
-                >
-                    Projects
-                </motion.h2>
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    {projects.map((project, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.2 }}
-                            whileHover={{ scale: 1.03 }}
-                            className="bg-white/5 border border-white/10 p-6 rounded-xl shadow-lg backdrop-blur-sm hover:border-indigo-600 transition"
-                        >
-                            <h3 className="text-xl font-semibold text-indigo-400 mb-2">{project.title}</h3>
-                            <p className="text-gray-300">{project.desc}</p>
-                        </motion.div>
-                    ))}
-                </div>
+                <motion.p className={`pt-3`}>
+                    My experience also includes DevOps, testing, and eCommerce platforms like Magento and
+                    Vendure. I'm constantly learning and staying updated with the latest technologies to
+                    deliver cutting-edge solutions.
+                </motion.p>
+                <motion.p className={`pt-3`}>
+                    When I'm not coding, I enjoy exploring new technologies, contributing to open-source
+                    projects, and sharing knowledge with the developer community.
+                </motion.p>
             </section>
 
             {/* Skills Section */}
@@ -134,18 +124,28 @@ export default function Home() {
                 >
                     Skills
                 </motion.h2>
-                <div className="flex flex-wrap justify-center gap-4">
-                    {skills.map((skill, i) => (
-                        <motion.span
+                <div className="grid md:grid-cols-2 gap-12">
+                    {Object.entries(skills).map(([category, items], i) => (
+                        <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: i * 0.1 }}
-                            className="px-5 py-2 bg-white/10 border border-white/20 rounded-full text-gray-200 text-sm font-medium hover:border-indigo-400 transition"
+                            transition={{ duration: 0.5, delay: i * 0.2 }}
+                            className="text-left"
                         >
-                            {skill}
-                        </motion.span>
+                            <h3 className="text-xl font-semibold text-indigo-400 mb-4 capitalize">{category}</h3>
+                            <div className="flex flex-wrap gap-3">
+                                {items.map((skill, j) => (
+                                    <span
+                                        key={j}
+                                        className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-gray-200 text-sm font-medium hover:border-indigo-400 transition"
+                                    >
+                    {skill}
+                  </span>
+                                ))}
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>
@@ -165,10 +165,30 @@ export default function Home() {
                     I’m open to freelance work, collaborations, or just a friendly chat.
                 </p>
                 <div className="flex justify-center gap-6 text-2xl">
-                    <a href="https://github.com/" target="_blank" className="hover:text-indigo-400 transition">🐙</a>
-                    <a href="https://linkedin.com/" target="_blank" className="hover:text-indigo-400 transition">💼</a>
-                    <a href="https://twitter.com/" target="_blank" className="hover:text-indigo-400 transition">🐦</a>
-                    <a href="mailto:yourmail@example.com" className="hover:text-indigo-400 transition">✉️</a>
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        className="hover:text-indigo-400 transition"
+                    >
+                        🐙
+                    </a>
+                    <a
+                        href="https://linkedin.com/"
+                        target="_blank"
+                        className="hover:text-indigo-400 transition"
+                    >
+                        💼
+                    </a>
+                    <a
+                        href="https://twitter.com/"
+                        target="_blank"
+                        className="hover:text-indigo-400 transition"
+                    >
+                        🐦
+                    </a>
+                    <a href="mailto:anandhuas2022@gmail.com" className="hover:text-indigo-400 transition">
+                        ✉️
+                    </a>
                 </div>
             </section>
 
