@@ -52,7 +52,7 @@ export default function ContactSection() {
                         <h3 className="text-xl font-semibold mb-2">LinkedIn</h3>
                         <p className="text-gray-400 text-sm mb-4">Let&apos;s connect professionally</p>
                         <MagnetButton
-                            href="www.linkedin.com/in/anandhu-a-s-5551aa287/"
+                            href="https://linkedin.com/in/anandhu-a-s-5551aa287"
                             className="text-purple-400 hover:text-purple-300 transition pointer-events-auto font-medium"
                         >
                             Connect with me
