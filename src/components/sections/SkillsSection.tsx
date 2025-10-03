@@ -84,23 +84,24 @@ const skillCategories = [
 
 export default function SkillsSection() {
     return (
-        <section id="skills" className="relative py-32 px-8 max-w-7xl mx-auto z-20 pointer-events-none">
+        <section id="skills" className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 z-20 pointer-events-none">
             <motion.div
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true}}
                 transition={{duration: 0.6}}
-                className="text-center mb-16"
+                className="text-center mb-8 sm:mb-12 lg:mb-16"
             >
-                <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
                     Technical Expertise
                 </h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                     A comprehensive toolkit of modern technologies and frameworks I use to build exceptional digital experiences.
                 </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="w-full max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8 w-full">
                 {skillCategories.map((category, i) => (
                     <motion.div
                         key={i}
@@ -108,36 +109,67 @@ export default function SkillsSection() {
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true}}
                         transition={{duration: 0.6, delay: i * 0.1}}
-                        className={`bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border ${category.borderColor} ${category.hoverColor} transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10`}
+                        className={`w-full bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl p-4 sm:p-4 md:p-6 border ${category.borderColor} ${category.hoverColor} transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10`}
                     >
                         {/* Category Header */}
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center text-2xl`}>
+                        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-4 md:mb-6">
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center text-base sm:text-lg md:text-2xl`}>
                                 {category.icon}
                             </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-white">{category.title}</h3>
-                                <p className="text-sm text-gray-400">{category.skills.length} technologies</p>
+                            <div className="flex-1 min-w-0">
+                                <h3 className="text-base sm:text-lg md:text-xl font-bold text-white truncate">{category.title}</h3>
+                                <p className="text-xs sm:text-sm text-gray-400">{category.skills.length} technologies</p>
                             </div>
                         </div>
 
-                        {/* Skills Grid */}
-                        <div className="grid gap-3">
+                        {/* Skills Grid - Fill Available Space */}
+                        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 w-full">
                             {category.skills.map((skill, j) => (
-                                <MagnetSkillBadge key={j} magnetStrength={0.15}>
-                                    <div className="w-full min-h-[60px] flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer">
-                                        <div className="flex items-center gap-4 flex-1 min-w-0">
-                                            <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
-                                                <span className="text-xl group-hover:scale-110 transition-transform">
+                                <MagnetSkillBadge key={j} magnetStrength={0.15} className="flex-1 min-w-[140px] sm:min-w-[160px] md:min-w-[180px] w-full">
+                                    <div className="w-full min-h-[45px] sm:min-h-[50px] md:min-h-[60px] flex items-center justify-between p-2 sm:p-3 md:p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer">
+                                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
+                                            <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center">
+                                                <span className="text-sm sm:text-lg md:text-xl group-hover:scale-110 transition-transform">
                                                     {skill.icon}
                                                 </span>
                                             </div>
-                                            <span className="font-medium text-white group-hover:text-gray-200 transition-colors truncate">
+                                            <span className="font-medium text-white group-hover:text-gray-200 transition-colors truncate text-sm sm:text-sm md:text-base">
                                                 {skill.name}
                                             </span>
                                         </div>
-                                        <div className="flex-shrink-0 ml-4">
-                                            <span className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                        <div className="flex-shrink-0 ml-2 sm:ml-2 md:ml-4">
+                                            {/* Mobile: Circular Progress, Desktop: Text Badge */}
+                                            <div className="block sm:hidden">
+                                                <div className="w-8 h-8">
+                                                    <svg className="w-8 h-8 transform -rotate-90" viewBox="0 0 36 36">
+                                                        <path
+                                                            className="text-gray-700"
+                                                            stroke="currentColor"
+                                                            strokeWidth="3"
+                                                            fill="none"
+                                                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                        />
+                                                        <path
+                                                            className={`${
+                                                                skill.level === 'Expert' 
+                                                                    ? 'text-green-400' 
+                                                                    : skill.level === 'Advanced'
+                                                                    ? 'text-blue-400'
+                                                                    : 'text-yellow-400'
+                                                            }`}
+                                                            stroke="currentColor"
+                                                            strokeWidth="3"
+                                                            strokeLinecap="round"
+                                                            fill="none"
+                                                            strokeDasharray={`${skill.level === 'Expert' ? '100' : skill.level === 'Advanced' ? '80' : '60'}, 100`}
+                                                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            
+                                            {/* Desktop: Text Badge */}
+                                            <span className={`hidden sm:block px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
                                                 skill.level === 'Expert' 
                                                     ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
                                                     : skill.level === 'Advanced'
@@ -153,6 +185,7 @@ export default function SkillsSection() {
                         </div>
                     </motion.div>
                 ))}
+                </div>
             </div>
         </section>
     );

@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     description: "Welcome to the portfolio of Anandhu A S – Frontend developer specializing in Next.js, React, and TypeScript. Showcasing projects, skills, and professional experience.",
 };
 
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+};
+
 export default function RootLayout({
                                        children,
                                    }: Readonly<{

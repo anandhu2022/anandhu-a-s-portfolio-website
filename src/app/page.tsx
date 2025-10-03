@@ -48,7 +48,7 @@ const Page = () => {
             <ContactSection />
 
             {/* Footer */}
-            <footer className="relative py-6 text-center text-gray-500 text-sm z-20 pointer-events-none">
+            <footer className="relative py-4 sm:py-6 text-center text-gray-500 text-xs sm:text-sm z-20 pointer-events-none px-4">
                 © {new Date().getFullYear()} Anandhu A S. Built with Next.js 🚀
             </footer>
         </main>
