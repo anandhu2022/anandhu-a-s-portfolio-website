@@ -42,9 +42,9 @@ function MagnetSkill({ skill, className = '', variant = 'blue' }: MagnetSkillPro
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={`flex items-center gap-3 px-6 py-3 ${gradientClass} backdrop-blur-sm rounded-full border border-white/10 text-white font-medium whitespace-nowrap hover:border-white/30 transition-colors cursor-pointer group`}>
-        <span className="text-2xl group-hover:scale-110 transition-transform">{skill.icon}</span>
-        <span className="text-sm">{skill.name}</span>
+      <div className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 ${gradientClass} backdrop-blur-sm rounded-full border border-white/10 text-white font-medium whitespace-nowrap hover:border-white/30 transition-colors cursor-pointer group`}>
+        <span className="text-lg sm:text-2xl group-hover:scale-110 transition-transform">{skill.icon}</span>
+        <span className="text-xs sm:text-sm">{skill.name}</span>
       </div>
     </motion.div>
   );
@@ -73,12 +73,12 @@ const skills = [
 
 export default function InfiniteSkillsScroll() {
   return (
-    <section className="py-16 overflow-hidden relative">
+    <section className="py-8 sm:py-12 lg:py-16 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
       
       {/* First row - moving right */}
       <motion.div
-        className="flex gap-8 mb-8"
+        className="flex gap-4 sm:gap-6 lg:gap-8 mb-4 sm:mb-6 lg:mb-8"
         animate={{
           x: [0, -1000],
         }}
@@ -98,7 +98,7 @@ export default function InfiniteSkillsScroll() {
 
       {/* Second row - moving left */}
       <motion.div
-        className="flex gap-8"
+        className="flex gap-4 sm:gap-6 lg:gap-8"
         animate={{
           x: [-1000, 0],
         }}

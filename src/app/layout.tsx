@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "Anandhu A S | Frontend Developer Portfolio",
     description: "Welcome to the portfolio of Anandhu A S – Frontend developer specializing in Next.js, React, and TypeScript. Showcasing projects, skills, and professional experience.",
+    viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
