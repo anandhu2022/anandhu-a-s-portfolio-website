@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://anandhu-a-s-portfolio-website.vercel.app/
+Host: https://anandhu-a-s-portfolio-website.vercel.app
 
 # Sitemaps
 Sitemap: https://anandhu-a-s-portfolio-website.vercel.app/sitemap.xml
