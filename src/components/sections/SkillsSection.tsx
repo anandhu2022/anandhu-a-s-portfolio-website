@@ -84,7 +84,7 @@ const skillCategories = [
 
 export default function SkillsSection() {
     return (
-        <section id="skills" className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-20 pointer-events-none">
+        <section id="skills" className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 z-20 pointer-events-none">
             <motion.div
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
@@ -100,7 +100,8 @@ export default function SkillsSection() {
                 </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="w-full max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
                 {skillCategories.map((category, i) => (
                     <motion.div
                         key={i}
@@ -108,36 +109,36 @@ export default function SkillsSection() {
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true}}
                         transition={{duration: 0.6, delay: i * 0.1}}
-                        className={`bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border ${category.borderColor} ${category.hoverColor} transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10`}
+                        className={`bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm rounded-2xl p-4 sm:p-4 md:p-6 border ${category.borderColor} ${category.hoverColor} transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10`}
                     >
                         {/* Category Header */}
-                        <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                            <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center text-lg sm:text-2xl`}>
+                        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-4 md:mb-6">
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center text-base sm:text-lg md:text-2xl`}>
                                 {category.icon}
                             </div>
-                            <div>
-                                <h3 className="text-lg sm:text-xl font-bold text-white">{category.title}</h3>
+                            <div className="flex-1 min-w-0">
+                                <h3 className="text-base sm:text-lg md:text-xl font-bold text-white truncate">{category.title}</h3>
                                 <p className="text-xs sm:text-sm text-gray-400">{category.skills.length} technologies</p>
                             </div>
                         </div>
 
-                        {/* Skills Grid */}
-                        <div className="grid gap-2 sm:gap-3">
+                        {/* Skills Grid - Simple Flex Layout */}
+                        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
                             {category.skills.map((skill, j) => (
                                 <MagnetSkillBadge key={j} magnetStrength={0.15}>
-                                    <div className="w-full min-h-[50px] sm:min-h-[60px] flex items-center justify-between p-3 sm:p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer">
-                                        <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
-                                            <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
-                                                <span className="text-lg sm:text-xl group-hover:scale-110 transition-transform">
+                                    <div className="flex-1 min-w-[140px] sm:min-w-[160px] md:min-w-[180px] min-h-[45px] sm:min-h-[50px] md:min-h-[60px] flex items-center justify-between p-2 sm:p-3 md:p-4 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group cursor-pointer">
+                                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
+                                            <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center">
+                                                <span className="text-sm sm:text-lg md:text-xl group-hover:scale-110 transition-transform">
                                                     {skill.icon}
                                                 </span>
                                             </div>
-                                            <span className="font-medium text-white group-hover:text-gray-200 transition-colors truncate text-sm sm:text-base">
+                                            <span className="font-medium text-white group-hover:text-gray-200 transition-colors truncate text-sm sm:text-sm md:text-base">
                                                 {skill.name}
                                             </span>
                                         </div>
-                                        <div className="flex-shrink-0 ml-2 sm:ml-4">
-                                            <span className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                        <div className="flex-shrink-0 ml-2 sm:ml-2 md:ml-4">
+                                            <span className={`px-2 sm:px-2 md:px-3 py-1 sm:py-1 md:py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
                                                 skill.level === 'Expert' 
                                                     ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
                                                     : skill.level === 'Advanced'
@@ -153,6 +154,7 @@ export default function SkillsSection() {
                         </div>
                     </motion.div>
                 ))}
+                </div>
             </div>
         </section>
     );
