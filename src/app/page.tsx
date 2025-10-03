@@ -8,6 +8,9 @@ import AboutSection from '@/components/sections/AboutSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import ContactSection from '@/components/sections/ContactSection';
 
+/**
+ * The main page of the website.
+ */
 const Page = () => {
     return (
         <main className="bg-black text-white">
