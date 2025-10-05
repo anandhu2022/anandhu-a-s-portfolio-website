@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Anandhu A S | Frontend Developer Portfolio",
+    title: "Anandhu A S | FullStack Web Developer Portfolio",
     description: "Welcome to the portfolio of Anandhu A S – Frontend developer specializing in Next.js, React, and TypeScript. Showcasing projects, skills, and professional experience.",
 };
 
